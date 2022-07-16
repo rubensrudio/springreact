@@ -2,33 +2,41 @@ import NotificationButton from "../NotificationButton";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./index.css";
+import { useState } from "react";
 
 function SalesCard() {
+
+  const min = new Date(new Date().setDate(new Date().getDate() - 365));
+  const max = new Date();
+
+  const [minDate, setMinDate] = useState(min);
+  const [maxDate, setMaxDate] = useState(max);
+
   return (
-    <div className="dsmeta-container">
-      <div className="dsmeta-card">
-        <h2 className="dsmeta-sales-title">Vendas</h2>
+    <div className="container">
+      <div className="card">
+        <h2 className="sales-title">Vendas</h2>
         <div>
-          <div className="dsmeta-form-control-container">
+          <div className="form-control-container">
             <DatePicker
-              selected={new Date()}
-              onChange={(date: Date) => {}}
-              className="dsmeta-form-control"
+              selected={minDate}
+              onChange={(date: Date) => setMinDate(date)}
+              className="form-control"
               dateFormat="dd/MM/yyyy"
             />
           </div>
-          <div className="dsmeta-form-control-container">
+          <div className="form-control-container">
             <DatePicker
-              selected={new Date()}
-              onChange={(date: Date) => {}}
-              className="dsmeta-form-control"
+              selected={maxDate}
+              onChange={(date: Date) => setMaxDate(date)}
+              className="form-control"
               dateFormat="dd/MM/yyyy"
             />
           </div>
         </div>
 
         <div>
-          <table className="dsmeta-sales-table">
+          <table className="sales-table">
             <thead>
               <tr>
                 <th className="show992">ID</th>
@@ -49,8 +57,8 @@ function SalesCard() {
                 <td className="show992">11</td>
                 <td>R$ 55300.00</td>
                 <td>
-                  <div className="dsmeta-red-btn-container">
-                    <div className="dsmeta-red-btn">
+                  <div className="red-btn-container">
+                    <div className="red-btn">
                       <NotificationButton />
                     </div>
                   </div>
@@ -64,8 +72,8 @@ function SalesCard() {
                 <td className="show992">11</td>
                 <td>R$ 55300.00</td>
                 <td>
-                  <div className="dsmeta-red-btn-container">
-                    <div className="dsmeta-red-btn">
+                  <div className="red-btn-container">
+                    <div className="red-btn">
                       <NotificationButton />
                     </div>
                   </div>
@@ -79,8 +87,8 @@ function SalesCard() {
                 <td className="show992">11</td>
                 <td>R$ 55300.00</td>
                 <td>
-                  <div className="dsmeta-red-btn-container">
-                    <div className="dsmeta-red-btn">
+                  <div className="red-btn-container">
+                    <div className="red-btn">
                       <NotificationButton />
                     </div>
                   </div>
