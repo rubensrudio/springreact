@@ -16,7 +16,7 @@ public class SaleServices {
 
     @Autowired
     private SaleRepository repository;
-    
+
     public Page<Sale> findSales(String minDate, String maxDate, org.springframework.data.domain.Pageable pageable) {
 
         LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
